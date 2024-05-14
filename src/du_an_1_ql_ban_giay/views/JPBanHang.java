@@ -4,15 +4,17 @@
  */
 package du_an_1_ql_ban_giay.views;
 
-import BanHangDAO.BanHangDAO;
-import BanHangDAO.HDCT_DAO;
-import BanHangDAO.HTTT_DAO;
-import BanHangDAO.TrangThaiHoaDonDAO;
-import BanHangDAO.TrangThaiThanhToanDAO;
+import ModelBanHang.HDCTBanHang;
+import ModelBanHang.HoaDonBanHang;
 import dao.KichCoDAO;
-import dao.MauSacDAO;
-import dao.ProductDetaisDAO;
+import du_an_1_ql_ban_giay.BanHangDAO.BanHangDAO;
+import du_an_1_ql_ban_giay.BanHangDAO.HDCT_DAO;
+import du_an_1_ql_ban_giay.BanHangDAO.HTTT_DAO;
+import du_an_1_ql_ban_giay.BanHangDAO.TrangThaiHoaDonDAO;
+import du_an_1_ql_ban_giay.BanHangDAO.TrangThaiThanhToanDAO;
+import du_an_1_ql_ban_giay.dao.MauSacDAO;
 import du_an_1_ql_ban_giay.dao.ProductDAO;
+import du_an_1_ql_ban_giay.dao.ProductDetaisDAO;
 import du_an_1_ql_ban_giay.utility.MsgBox;
 import java.awt.Color;
 import java.awt.Component;
@@ -1020,24 +1022,24 @@ public class JPBanHang extends javax.swing.JFrame {
         countSoHD_TaiQuay();//Đếm lại SL hóa đơn trên bảng sau khi Fill
     }
 
-    private void fill_HTTT_To_Cbb() {//Đẩy tất cả hình thức thanh toán lên combobox.
-        dcbHTTT = (DefaultComboBoxModel) cbb_hinhThucThanhToan.getModel();
-        dcbHTTT.removeAllElements();
-        List<hinhThucThanhToan> listHTTT = htttd.selectAll_HTTT();
-        for (hinhThucThanhToan httt : listHTTT) {
-            dcbHTTT.addElement(httt);
-        }
-    }
+//    private void fill_HTTT_To_Cbb() {//Đẩy tất cả hình thức thanh toán lên combobox.
+//        dcbHTTT = (DefaultComboBoxModel) cbb_hinhThucThanhToan.getModel();
+//        dcbHTTT.removeAllElements();
+//        List<hinhThucThanhToan> listHTTT = htttd.selectAll_HTTT();
+//        for (hinhThucThanhToan httt : listHTTT) {
+//            dcbHTTT.addElement(httt);
+//        }
+//    }
 
-    private void fill_Voucher_To_Cbb() {//Đẩy tất cả Cbb lên.
-        dcbVoucherTaiQuay = (DefaultComboBoxModel) cbb_voucher_taiQuay.getModel();
-        dcbVoucherTaiQuay.removeAllElements();
-        dcbVoucherTaiQuay.addElement("Chưa áp dụng voucher"); //Tại vì trog DS ko thể cho cái này insert vào đc.
-        List<voucher> listVC = vcd.getAll1();
-        for (voucher vc : listVC) {
-            dcbVoucherTaiQuay.addElement(vc.getMota());
-        }
-    }
+//    private void fill_Voucher_To_Cbb() {//Đẩy tất cả Cbb lên.
+//        dcbVoucherTaiQuay = (DefaultComboBoxModel) cbb_voucher_taiQuay.getModel();
+//        dcbVoucherTaiQuay.removeAllElements();
+//        dcbVoucherTaiQuay.addElement("Chưa áp dụng voucher"); //Tại vì trog DS ko thể cho cái này insert vào đc.
+//        List<voucher> listVC = vcd.getAll1();
+//        for (voucher vc : listVC) {
+//            dcbVoucherTaiQuay.addElement(vc.getMota());
+//        }
+//    }
 
     private void fill_HĐCT_To_GioHang(int id_HDCT) {
         dtmGioHang = (DefaultTableModel) this.tbl_dsGioHang.getModel();
@@ -1448,28 +1450,28 @@ public class JPBanHang extends javax.swing.JFrame {
         });
     }
 
-    private void openViewKhachHang() {
-        ChonThongTinKH kh = new ChonThongTinKH(this, true);
-        kh.setVisible(true);
-    }
-
-    //chọn Khách Hàng
-    public void chooseKH(KhachHang kh) {
-        this.chonKH(kh);
-    }
-
-    @Override
-    public void chonKH(KhachHang kh) {//Chọn KH là upda lại kh trong hóa đơn đó
-        txt_maKH.setText(kh.getMaKH());
-        txt_tenKH.setText(kh.getName());
-        int id_KH = kh.getId();
-        String id_HDString = tbl_dshd.getValueAt(indexInvoiceChoosed, 1).toString().substring(2);
-        if (bhd.update_ID_KH(Integer.valueOf(id_HDString), id_KH) == 1) {
-            MsgBox.alter(this, "Thay đổi thông tin khách hàng trong hóa đơn thành công");
-        } else {
-            MsgBox.alter(this, "Thay đổi thông tin khách hàng thất bại");
-        }
-    }
+//    private void openViewKhachHang() {
+//        ChonThongTinKH kh = new ChonThongTinKH(this, true);
+//        kh.setVisible(true);
+//    }
+//
+//    //chọn Khách Hàng
+//    public void chooseKH(KhachHang kh) {
+//        this.chonKH(kh);
+//    }
+//
+//    @Override
+//    public void chonKH(KhachHang kh) {//Chọn KH là upda lại kh trong hóa đơn đó
+//        txt_maKH.setText(kh.getMaKH());
+//        txt_tenKH.setText(kh.getName());
+//        int id_KH = kh.getId();
+//        String id_HDString = tbl_dshd.getValueAt(indexInvoiceChoosed, 1).toString().substring(2);
+//        if (bhd.update_ID_KH(Integer.valueOf(id_HDString), id_KH) == 1) {
+//            MsgBox.alter(this, "Thay đổi thông tin khách hàng trong hóa đơn thành công");
+//        } else {
+//            MsgBox.alter(this, "Thay đổi thông tin khách hàng thất bại");
+//        }
+//    }
 
     //
     public boolean checkValidation_TienKhachDua_CK() {
