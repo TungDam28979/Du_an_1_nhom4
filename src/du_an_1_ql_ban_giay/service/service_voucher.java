@@ -5,13 +5,14 @@
 package du_an_1_ql_ban_giay.service;
 
 import com.toedter.calendar.JDateChooser;
+import du_an_1_ql_ban_giay.model.voucher;
 import du_an_1_ql_ban_giay.utility.DBConnect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import model.voucher;
+import du_an_1_ql_ban_giay.model.voucher;
 
 
 /**

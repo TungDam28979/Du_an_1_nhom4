@@ -4,7 +4,7 @@ import du_an_1_ql_ban_giay.utility.DBConnect;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import model.HoaDonKH;
+import du_an_1_ql_ban_giay.model.HoaDonKH;
 
 public class HoaDonService {
 

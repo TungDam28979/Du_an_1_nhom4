@@ -3,7 +3,7 @@ package dao;
 import du_an_1_ql_ban_giay.utility.JDBCHelper;
 import java.util.ArrayList;
 import java.util.List;
-import model.AkichCo;
+import du_an_1_ql_ban_giay.model.AkichCo;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;

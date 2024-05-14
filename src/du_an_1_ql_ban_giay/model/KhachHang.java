@@ -1,4 +1,4 @@
-package model;
+package du_an_1_ql_ban_giay.model;
 
 import java.util.Date;
 

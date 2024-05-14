@@ -6,8 +6,8 @@ import java.util.List;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Ispct;
-import model.IspctInsert;
+import du_an_1_ql_ban_giay.model.Ispct;
+import du_an_1_ql_ban_giay.model.IspctInsert;
 
 public class ProductDetaisDAO {
 
