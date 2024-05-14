@@ -4,14 +4,12 @@
  */
 package du_an_1_ql_ban_giay.views;
 
-<<<<<<< HEAD
-import ModelBanHang.HDCTBanHang;
-import ModelBanHang.HoaDonBanHang;
-import ModelBanHang.hinhThucThanhToan;
 import du_an_1_ql_ban_giay.BanHangDAO.BanHangDAO;
 import du_an_1_ql_ban_giay.BanHangDAO.HDCT_DAO;
 import du_an_1_ql_ban_giay.BanHangDAO.TrangThaiHoaDonDAO;
 import du_an_1_ql_ban_giay.BanHangDAO.TrangThaiThanhToanDAO;
+import du_an_1_ql_ban_giay.ModelBanHang.HDCTBanHang;
+import du_an_1_ql_ban_giay.ModelBanHang.HoaDonBanHang;
 import du_an_1_ql_ban_giay.dao.KichCoDAO;
 import du_an_1_ql_ban_giay.dao.MauSacDAO;
 import du_an_1_ql_ban_giay.dao.ProductDAO;
@@ -24,17 +22,7 @@ import du_an_1_ql_ban_giay.model.voucher;
 import du_an_1_ql_ban_giay.service.KhachHangService;
 import du_an_1_ql_ban_giay.service.NhanVien_Service;
 import du_an_1_ql_ban_giay.service.service_voucher;
-=======
-import BanHangDAO.BanHangDAO;
-import BanHangDAO.HDCT_DAO;
-import BanHangDAO.HTTT_DAO;
-import BanHangDAO.TrangThaiHoaDonDAO;
-import BanHangDAO.TrangThaiThanhToanDAO;
-import dao.KichCoDAO;
-import dao.MauSacDAO;
-import dao.ProductDetaisDAO;
 import du_an_1_ql_ban_giay.dao.ProductDAO;
->>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
 import du_an_1_ql_ban_giay.utility.MsgBox;
 import java.awt.Color;
 import java.awt.Component;
@@ -56,24 +44,14 @@ import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableRowSorter;
-<<<<<<< HEAD
-=======
-import model.GetChucVu;
-import model.Ispct;
-import model.KhachHang;
-import model.NhanVien;
-import model.voucher;
-import service.KhachHangService;
-import service.NhanVien_Service;
 
->>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
 /**
  *
  * @author Admin
  */
 public class JPBanHang extends javax.swing.JFrame {
 
-    private int indexInvoiceChoosed;
+    private int indexInvoiceChoosed1;
 
     /**
      * Creates new form JPBanHang
@@ -514,6 +492,11 @@ public class JPBanHang extends javax.swing.JFrame {
     jScrollPane2.setViewportView(tbl_dsGioHang);
 
     btn3_HuySP.setText("Hủy SP");
+    btn3_HuySP.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btn3_HuySPActionPerformed(evt);
+        }
+    });
 
     javax.swing.GroupLayout pn_gioHangLayout = new javax.swing.GroupLayout(pn_gioHang);
     pn_gioHang.setLayout(pn_gioHangLayout);
@@ -583,6 +566,16 @@ public class JPBanHang extends javax.swing.JFrame {
     btn2_xoaDon.setText("Xóa HD");
 
     btn1_taoDon.setText("Tạo HD");
+    btn1_taoDon.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            btn1_taoDonMouseClicked(evt);
+        }
+    });
+    btn1_taoDon.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btn1_taoDonActionPerformed(evt);
+        }
+    });
 
     javax.swing.GroupLayout pn_hoaDonLayout = new javax.swing.GroupLayout(pn_hoaDon);
     pn_hoaDon.setLayout(pn_hoaDonLayout);
@@ -761,7 +754,7 @@ public class JPBanHang extends javax.swing.JFrame {
     private void txt_tienKhachDuaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tienKhachDuaKeyReleased
         try {
             String httt_choosed = dcbHTTT.getSelectedItem().toString();
-            if (indexInvoiceChoosed != -1 && !txt_tienKhachDua.getText().isEmpty()) {//Phải chọn HĐ
+            if (indexInvoiceChoosed1 != -1 && !txt_tienKhachDua.getText().isEmpty()) {//Phải chọn HĐ
                 int lastCommaIndex = txt_thanhToan.getText().lastIndexOf(",");
                 String tienPhaiThanhToan = txt_thanhToan.getText().substring(0, lastCommaIndex).replaceAll(",", "");
                 if (!"0".equals(tienPhaiThanhToan)) {//HĐ phải có SP <=> tiền thanh toán != 0 && tiền đưa/ck != "
@@ -777,10 +770,10 @@ public class JPBanHang extends javax.swing.JFrame {
                     MsgBox.alter(this, "Vui lòng chọn sản phẩm trước mới nhập tiền khách đưa");
                     txt_tienKhachDua.setText("");
                 }
-            } else if (indexInvoiceChoosed == -1) {
+            } else if (indexInvoiceChoosed1 == -1) {
                 MsgBox.alter(this, "Vui lòng chọn hóa đơn để nhập số tiền");
                 txt_tienKhachDua.setText("");
-            } else if (indexInvoiceChoosed != -1 && txt_tienKhachDua.getText().isEmpty()) {//TH xóa đi số cuối.
+            } else if (indexInvoiceChoosed1 != -1 && txt_tienKhachDua.getText().isEmpty()) {//TH xóa đi số cuối.
                 if (httt_choosed.equals("Kết Hợp") && !txt_tienKhachCK.getText().isEmpty()) {//Xóa đi ký tự cuối.Nhưng nếu là kq thì nó thừa = tổng - hhtt kia
                     int lastCommaIndex = txt_thanhToan.getText().lastIndexOf(",");
                     txt_tienThua.setText((String.valueOf(Integer.valueOf(txt_tienKhachCK.getText()) - Integer.valueOf(txt_thanhToan.getText().substring(0, lastCommaIndex).replaceAll(",", "")))));
@@ -799,7 +792,7 @@ public class JPBanHang extends javax.swing.JFrame {
     private void txt_tienKhachCKKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tienKhachCKKeyReleased
         try {
             String httt_choosed = dcbHTTT.getSelectedItem().toString();
-            if (indexInvoiceChoosed != -1 && !txt_tienKhachCK.getText().isEmpty()) {//Phải chọn HĐ
+            if (indexInvoiceChoosed1 != -1 && !txt_tienKhachCK.getText().isEmpty()) {//Phải chọn HĐ
                 int lastCommaIndex = txt_thanhToan.getText().lastIndexOf(",");
                 String tienPhaiThanhToan = txt_thanhToan.getText().substring(0, lastCommaIndex).replaceAll(",", "");
                 if (!"0".equals(tienPhaiThanhToan)) {//HĐ phải có SP <=> tiền thanh toán != 0 && tiền đưa/ck != "
@@ -815,10 +808,10 @@ public class JPBanHang extends javax.swing.JFrame {
                     MsgBox.alter(this, "Vui lòng chọn sản phẩm trước mới nhập tiền khách ck");
                     txt_tienKhachCK.setText("");
                 }
-            } else if (indexInvoiceChoosed == -1) {
+            } else if (indexInvoiceChoosed1 == -1) {
                 MsgBox.alter(this, "Vui lòng chọn hóa đơn để nhập số tiền ");
                 txt_tienKhachCK.setText("");
-            } else if (indexInvoiceChoosed != -1 && txt_tienKhachCK.getText().isEmpty()) {//TH xóa đi số cuối.
+            } else if (indexInvoiceChoosed1 != -1 && txt_tienKhachCK.getText().isEmpty()) {//TH xóa đi số cuối.
                 if (httt_choosed.equals("Kết Hợp") && !txt_tienKhachDua.getText().isEmpty()) {//Xóa đi ký tự cuối.Nhưng nếu là kq thì nó thừa = tổng - hhtt kia nhưng vs Th nó ko null
                     int lastCommaIndex = txt_thanhToan.getText().lastIndexOf(",");
                     txt_tienThua.setText((String.valueOf(Integer.valueOf(txt_tienKhachDua.getText()) - Integer.valueOf(txt_thanhToan.getText().substring(0, lastCommaIndex).replaceAll(",", "")))));
@@ -836,22 +829,22 @@ public class JPBanHang extends javax.swing.JFrame {
 
     private void tbl_dsGioHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_dsGioHangMouseClicked
         int rowSelectedOnGioHang = tbl_dsGioHang.getSelectedRow();//Chek xem SPCT trên giỏ hàng đã đc chọn chưa.
-        if (indexInvoiceChoosed != -1 && evt.getClickCount() == 2) {
-            maHDChoosed = Integer.valueOf(tbl_dshd.getValueAt(indexInvoiceChoosed, 1).toString().substring(2));
+        if (indexInvoiceChoosed1 != -1 && evt.getClickCount() == 2) {
+            maHDChoosed = Integer.valueOf(tbl_dshd.getValueAt(indexInvoiceChoosed1, 1).toString().substring(2));
             int id_SPCT = Integer.valueOf(tbl_dsGioHang.getValueAt(rowSelectedOnGioHang, 1).toString().substring(5));
             int ID_HĐCT = hdctd.get_ID_HDCT_BY_ID_HD_And_SPCT(maHDChoosed, id_SPCT);
             nhapSLSP_WhenClick_Table_GioHang(rowSelectedOnGioHang, maHDChoosed, id_SPCT, ID_HĐCT);
-        } else if (indexInvoiceChoosed != -1 && evt.getClickCount() == 1) {
+        } else if (indexInvoiceChoosed1 != -1 && evt.getClickCount() == 1) {
             SPCTChoosed_On_GioHang = Integer.valueOf(tbl_dsGioHang.getValueAt(rowSelectedOnGioHang, 1).toString().substring(5));
             System.out.println(SPCTChoosed_On_GioHang);
         }
     }//GEN-LAST:event_tbl_dsGioHangMouseClicked
 
     private void tbl_dshdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_dshdMouseClicked
-        indexInvoiceChoosed = this.tbl_dshd.getSelectedRow();//Thiết lập đơn hàng đang được chọn.
-        if (indexInvoiceChoosed != -1) {
-            maHDChoosed = Integer.valueOf(this.tbl_dshd.getValueAt(indexInvoiceChoosed, 1).toString().substring(2));//Thiết lập hóa đơn đc chọn.
-            String id_HDString = tbl_dshd.getValueAt(indexInvoiceChoosed, 1).toString().substring(2);
+        indexInvoiceChoosed1 = this.tbl_dshd.getSelectedRow();//Thiết lập đơn hàng đang được chọn.
+        if (indexInvoiceChoosed1 != -1) {
+            maHDChoosed = Integer.valueOf(this.tbl_dshd.getValueAt(indexInvoiceChoosed1, 1).toString().substring(2));//Thiết lập hóa đơn đc chọn.
+            String id_HDString = tbl_dshd.getValueAt(indexInvoiceChoosed1, 1).toString().substring(2);
             fillThongTinHoaDon_TaiQuay_ByID_HD(Integer.valueOf(id_HDString));
             fill_HĐCT_To_GioHang(Integer.valueOf(id_HDString));
             fillThongTinHoaDon_TaiQuay_ByID_HD(Integer.valueOf(id_HDString));
@@ -892,6 +885,54 @@ public class JPBanHang extends javax.swing.JFrame {
         dtmDSSP = (DefaultTableModel) this.tbl_dssp.getModel();
         search(searchString, dtmDSSP, this.tbl_dssp);
     }//GEN-LAST:event_txt_searchSPCTKeyReleased
+
+    private void btn1_taoDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn1_taoDonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn1_taoDonMouseClicked
+
+    private void btn1_taoDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1_taoDonActionPerformed
+        // TODO add your handling code here:
+        if (tbl_dshd.getRowCount() == 5) {
+            MsgBox.alter(this, "Tối đa 5 hóa đơn được tạo ra");
+            return;
+        }
+        if (MsgBox.confirm(this, "Tạo thêm 1 hóa đơn")) {
+            taoHoaDon();//Đã có TB
+            Fill_ListHD_By_Status();//Fill lại bảng vs HĐ mới vừa tạo
+
+            indexInvoiceChoosed = this.tbl_dshd.getRowCount() - 1;//Khi tạo HD <=> mặc định hóa đơn tạo đc chọn
+            maHDChoosed = Integer.valueOf(this.tbl_dshd.getValueAt(indexInvoiceChoosed, 1).toString().substring(2));
+            MsgBox.alter(this, "Hóa đơn HĐ" + maHDChoosed + " đang được chọn");
+            this.tbl_dshd.setRowSelectionInterval(indexInvoiceChoosed, indexInvoiceChoosed);//Thiết lập row dang đc chọn.
+
+            fill_HĐCT_To_GioHang(maHDChoosed);//fill lại giỏ hàng cho HĐ mới
+            khachHangDefault();
+            fillThongTinHoaDon_TaiQuay_ByID_HD(maHDChoosed);//fill lại in4 KH
+            lbl_HDChoosed.setText(String.valueOf(maHDChoosed));
+        }
+    }//GEN-LAST:event_btn1_taoDonActionPerformed
+
+    private void btn3_HuySPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3_HuySPActionPerformed
+        // TODO add your handling code here:
+        if (tbl_dsGioHang.getSelectedRow() != -1) {
+            boolean result = MsgBox.confirm(this, "Xác nhận xóa sản phẩm SPCT-" + SPCTChoosed_On_GioHang + " khỏi giỏ hàng");
+            if (result) {
+                hdctd.delete_HDCT_By_ID_SPCT(SPCTChoosed_On_GioHang);//Xóa hđ có id_spct đã chọn.
+                int SL_gioHang = Integer.valueOf(tbl_dsGioHang.getValueAt(tbl_dsGioHang.getSelectedRow(), 3).toString());
+                int SL_ton = prdd.selectById_To_ThemNhanh(SPCTChoosed_On_GioHang).getSoLuong();//SL trong scpt.
+                prdd.updateSL_Ton_When_Insert_HDCT(SPCTChoosed_On_GioHang, SL_gioHang + SL_ton);
+                update_Tong_GTHĐ(maHDChoosed);
+                fill_ALL_SPCT_To_Table();//Fill lại để cập nhật lại SL
+                fillThongTinHoaDon_TaiQuay_ByID_HD(maHDChoosed);
+                fill_HĐCT_To_GioHang(maHDChoosed);
+                MsgBox.alter(this, "Xóa sản phẩm khỏi giỏ hàng thành công");
+            } else if (!result) {
+                MsgBox.alter(this, "Hủy xóa SPCT khỏi giỏ hàng");
+            }
+        } else {
+            MsgBox.alter(this, "Vui lòng chọn SPCT để xóa khỏi giỏ hàng");
+        }
+    }//GEN-LAST:event_btn3_HuySPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -990,13 +1031,10 @@ public class JPBanHang extends javax.swing.JFrame {
     ProductDetaisDAO prdd = new ProductDetaisDAO();//Sẩn phẩm chi tiết đao
     MauSacDAO msd = new MauSacDAO();//màu sắc dao
     KichCoDAO kcd = new KichCoDAO();//kích cỡ đao
-<<<<<<< HEAD
 //    HTTT_DAO htttd = new HTTT_DAO();// Hinh thức thanh toán
     service_voucher vcd = new service_voucher();//voucher ser
-=======
-    HTTT_DAO htttd = new HTTT_DAO();// Hinh thức thanh toán
+//    HTTT_DAO htttd = new HTTT_DAO();// Hinh thức thanh toán
 //    service_voucher vcd = new service_voucher();//voucher ser
->>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
     //----------Lấy model của các combobox để thao tác dữ liệu
     DefaultComboBoxModel dcbMauSac;
     DefaultComboBoxModel dcbKichCo;
@@ -1016,7 +1054,7 @@ public class JPBanHang extends javax.swing.JFrame {
     DefaultTableModel dtmGioHang;
     DefaultTableModel dtmDSSP;
     //--------------------Để xác định hóa đơn có đang đc chọn ko để thêm SPCT.
-//    int indexInvoiceChoosed = -1; //Để chek xem dòng hóa đơn đang đc chọn trên bảng.
+    int indexInvoiceChoosed = -1; //Để chek xem dòng hóa đơn đang đc chọn trên bảng.
     int maHDChoosed = -1; //X.Định mã HĐ đag đc chọn là gì.
     int SPCTChoosed_On_GioHang; //Xác định SPCT đang chọn trển bảng giỏ hàng
     int maSPCTChoosed_On_DSSP; //Xác định mã SPCT đang chọn trên bảng SPCT
@@ -1052,7 +1090,6 @@ public class JPBanHang extends javax.swing.JFrame {
         countSoHD_TaiQuay();//Đếm lại SL hóa đơn trên bảng sau khi Fill
     }
 
-<<<<<<< HEAD
 //    private void fill_HTTT_To_Cbb() {//Đẩy tất cả hình thức thanh toán lên combobox.
 //        dcbHTTT = (DefaultComboBoxModel) cbb_hinhThucThanhToan.getModel();
 //        dcbHTTT.removeAllElements();
@@ -1061,16 +1098,15 @@ public class JPBanHang extends javax.swing.JFrame {
 //            dcbHTTT.addElement(httt);
 //        }
 //    }
-=======
-    private void fill_HTTT_To_Cbb() {//Đẩy tất cả hình thức thanh toán lên combobox.
-        dcbHTTT = (DefaultComboBoxModel) cbb_hinhThucThanhToan.getModel();
-        dcbHTTT.removeAllElements();
-        List<hinhThucThanhToan> listHTTT = htttd.selectAll_HTTT();
-        for (hinhThucThanhToan httt : listHTTT) {
-            dcbHTTT.addElement(httt);
-        }
-    }
->>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
+//    private void fill_HTTT_To_Cbb() {//Đẩy tất cả hình thức thanh toán lên combobox.
+//        dcbHTTT = (DefaultComboBoxModel) cbb_hinhThucThanhToan.getModel();
+//        dcbHTTT.removeAllElements();
+//        List<hinhThucThanhToan> listHTTT = htttd.selectAll_HTTT();
+//        for (hinhThucThanhToan httt : listHTTT) {
+//            dcbHTTT.addElement(httt);
+//        }
+//    }
+
 
     private void fill_Voucher_To_Cbb() {//Đẩy tất cả Cbb lên.
         dcbVoucherTaiQuay = (DefaultComboBoxModel) cbb_voucher_taiQuay.getModel();
@@ -1141,10 +1177,10 @@ public class JPBanHang extends javax.swing.JFrame {
     }
 
     private void nhapSLSP_WhenClick_Table_DSSP(int maSPCTChoosed) {
-        if (indexInvoiceChoosed == -1) {
+        if (indexInvoiceChoosed1 == -1) {
             MsgBox.alter(this, "Vui lòng chọn hóa đơn trước khi thêm sản phẩm vào giỏ hàng!!");
         } else {
-            maHDChoosed = Integer.valueOf(tbl_dshd.getValueAt(indexInvoiceChoosed, 1).toString().substring(2));//truy vấn SPCT có trong HĐCT chưa ? ~ xem trong hóa đơn chọn đã có SPCT này chưa ? 
+            maHDChoosed = Integer.valueOf(tbl_dshd.getValueAt(indexInvoiceChoosed1, 1).toString().substring(2));//truy vấn SPCT có trong HĐCT chưa ? ~ xem trong hóa đơn chọn đã có SPCT này chưa ? 
             int maxSL_SPCT = prdd.selectById_To_ThemNhanh(maSPCTChoosed).getSoLuong();//SL Lấy theo ID spct. Để so sánh vs g.trị kh muốn mua.
             String soLuongMua;//SL user muốn mua.
             while (true) {//Hiện thị hộp thoại cho đến khi user đóng || nhập đúng
@@ -1306,7 +1342,7 @@ public class JPBanHang extends javax.swing.JFrame {
         txt_tongGiaTriHD.setText(null);//tổng giá trị HĐ
         txt_thanhToan.setText(null);//thành tiền
         txt_tienThua.setText(null);//Tiền thừa 
-        indexInvoiceChoosed = -1;
+        indexInvoiceChoosed1 = -1;
         lbl_HDChoosed.setText("-1");
     }
 
@@ -1491,7 +1527,6 @@ public class JPBanHang extends javax.swing.JFrame {
         });
     }
 
-<<<<<<< HEAD
 //    private void openViewKhachHang() {
 //        ChonThongTinKH kh = new ChonThongTinKH(this, true);
 //        kh.setVisible(true);
@@ -1507,37 +1542,35 @@ public class JPBanHang extends javax.swing.JFrame {
 //        txt_maKH.setText(kh.getMaKH());
 //        txt_tenKH.setText(kh.getName());
 //        int id_KH = kh.getId();
-//        String id_HDString = tbl_dshd.getValueAt(indexInvoiceChoosed, 1).toString().substring(2);
+//        String id_HDString = tbl_dshd.getValueAt(indexInvoiceChoosed1, 1).toString().substring(2);
 //        if (bhd.update_ID_KH(Integer.valueOf(id_HDString), id_KH) == 1) {
 //            MsgBox.alter(this, "Thay đổi thông tin khách hàng trong hóa đơn thành công");
 //        } else {
 //            MsgBox.alter(this, "Thay đổi thông tin khách hàng thất bại");
 //        }
 //    }
-=======
-    private void openViewKhachHang() {
-        ChonThongTinKH kh = new ChonThongTinKH(this, true);
-        kh.setVisible(true);
-    }
-
-    //chọn Khách Hàng
-    public void chooseKH(KhachHang kh) {
-        this.chonKH(kh);
-    }
-
-    @Override
-    public void chonKH(KhachHang kh) {//Chọn KH là upda lại kh trong hóa đơn đó
-        txt_maKH.setText(kh.getMaKH());
-        txt_tenKH.setText(kh.getName());
-        int id_KH = kh.getId();
-        String id_HDString = tbl_dshd.getValueAt(indexInvoiceChoosed, 1).toString().substring(2);
-        if (bhd.update_ID_KH(Integer.valueOf(id_HDString), id_KH) == 1) {
-            MsgBox.alter(this, "Thay đổi thông tin khách hàng trong hóa đơn thành công");
-        } else {
-            MsgBox.alter(this, "Thay đổi thông tin khách hàng thất bại");
-        }
-    }
->>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
+//    private void openViewKhachHang() {
+//        ChonThongTinKH kh = new ChonThongTinKH(this, true);
+//        kh.setVisible(true);
+//    }
+//
+//    //chọn Khách Hàng
+//    public void chooseKH(KhachHang kh) {
+//        this.chonKH(kh);
+//    }
+//
+//    @Override
+//    public void chonKH(KhachHang kh) {//Chọn KH là upda lại kh trong hóa đơn đó
+//        txt_maKH.setText(kh.getMaKH());
+//        txt_tenKH.setText(kh.getName());
+//        int id_KH = kh.getId();
+//        String id_HDString = tbl_dshd.getValueAt(indexInvoiceChoosed1, 1).toString().substring(2);
+//        if (bhd.update_ID_KH(Integer.valueOf(id_HDString), id_KH) == 1) {
+//            MsgBox.alter(this, "Thay đổi thông tin khách hàng trong hóa đơn thành công");
+//        } else {
+//            MsgBox.alter(this, "Thay đổi thông tin khách hàng thất bại");
+//        }
+//    }
 
     //
     public boolean checkValidation_TienKhachDua_CK() {
@@ -1561,7 +1594,7 @@ public class JPBanHang extends javax.swing.JFrame {
     public void hopLeDeThanhToan() {//
         Double tienKhachDuaDouble = Double.valueOf(txt_tienKhachDua.getText());
         BigDecimal tienKhachDuaBig = BigDecimal.valueOf(tienKhachDuaDouble);
-        int id_HDString = Integer.valueOf(tbl_dshd.getValueAt(indexInvoiceChoosed, 1).toString().substring(2));
+        int id_HDString = Integer.valueOf(tbl_dshd.getValueAt(indexInvoiceChoosed1, 1).toString().substring(2));
         BigDecimal tongGTHD = bhd.selectTT_HD_TaiQuay_ById(id_HDString).getTongGiaTriHD();
 //        BigDecimal tienThua = tongGTHD - tienKhachDuaBig;
     }

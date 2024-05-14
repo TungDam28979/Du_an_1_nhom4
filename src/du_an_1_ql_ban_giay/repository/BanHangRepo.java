@@ -50,7 +50,6 @@ public class BanHangRepo {
             return null;
         }
     }
-<<<<<<< HEAD
 
     public ArrayList<BanHang> getmasanpham(int ma) {
         ArrayList<BanHang> list = new ArrayList<>();
@@ -298,7 +297,5 @@ public class BanHangRepo {
         }
 
     }
-=======
->>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
   
 }

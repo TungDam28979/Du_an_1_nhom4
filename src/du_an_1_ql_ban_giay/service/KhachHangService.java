@@ -50,7 +50,7 @@ public class KhachHangService {
         }
     }
 
-    public KhachHang getKH_ToThemNhanhBanHang(String maKH) {//Mạnh Thêm
+    public KhachHang getKH_ToThemNhanhBanHang(String maKH) {
         sql = "SELECT id, maKH, hoTen, gioiTinh, soDT, email, diaChi FROM [dbo].[tbl_khachHang] WHERE maKH = ?";
         KhachHang kh = null;
         try {
@@ -70,7 +70,7 @@ public class KhachHangService {
         }
     }
 
-    public KhachHang get_TTKH_In_HD(int maHD) {//Mạnh Thêm
+    public KhachHang get_TTKH_In_HD(int maHD) {
         sql = """
               SELECT kh.id, kh.maKH, kh.hoTen, kh.gioiTinh, soDT, email, diaChi , hd.tienThua , 
               Sum( tt.soTienThanhToan) as N'tongTienTra' , hd.tongGiaTriHoaDon
@@ -165,7 +165,7 @@ public class KhachHangService {
         }
     }
 
-    public KhachHang getTT_KH_BY_ID(int id) {//Mạnh Viết ( Truy ra KH từ ID ) ở bán hàng
+    public KhachHang getTT_KH_BY_ID(int id) {
         sql = "SELECT maKH, hoTen, gioiTinh, soDT, email, diaChi FROM [dbo].[tbl_khachHang]"
                 + "where id = ? ";
         try {

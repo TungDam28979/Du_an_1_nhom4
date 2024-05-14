@@ -1,18 +1,13 @@
-<<<<<<< HEAD
+
 package du_an_1_ql_ban_giay.dao;
 
 import du_an_1_ql_ban_giay.model.AkichCo;
 import du_an_1_ql_ban_giay.utility.JDBCHelper;
 import java.util.ArrayList;
 import java.util.List;
-=======
-package dao;
-
 import du_an_1_ql_ban_giay.utility.JDBCHelper;
 import java.util.ArrayList;
 import java.util.List;
-import model.AkichCo;
->>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;

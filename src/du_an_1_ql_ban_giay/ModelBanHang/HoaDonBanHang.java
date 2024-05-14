@@ -1,4 +1,4 @@
-package ModelBanHang;
+package du_an_1_ql_ban_giay.ModelBanHang;
 
 import java.math.BigDecimal;
 import java.security.SecureRandom;

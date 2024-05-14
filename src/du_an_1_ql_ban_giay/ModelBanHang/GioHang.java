@@ -1,4 +1,4 @@
-package ModelBanHang;
+package du_an_1_ql_ban_giay.ModelBanHang;
 
 import java.math.BigDecimal;
 //Bản chất được hiểu giỏ hàng là 1 bản ghi để insert vào hóa đơn chi tiết.

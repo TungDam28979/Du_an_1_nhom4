@@ -1,22 +1,13 @@
 package du_an_1_ql_ban_giay.dao;
 
-<<<<<<< HEAD
 import du_an_1_ql_ban_giay.model.Ispct;
 import du_an_1_ql_ban_giay.model.IspctInsert;
-=======
->>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
 import du_an_1_ql_ban_giay.utility.JDBCHelper;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-<<<<<<< HEAD
-=======
-import model.Ispct;
-import model.IspctInsert;
->>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
-
 public class ProductDetaisDAO {
 
     String updateSL_Ton_When_Insert_HDCT = """

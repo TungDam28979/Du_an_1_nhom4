@@ -3,17 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/repository/BanHangRepo.java</file>
-            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/service/HoaDonService.java</file>
-            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/service/ChooseKH.java</file>
-=======
             <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/views/JPBanHang.java</file>
-            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/Du_an_1_QL_Ban_Giay.java</file>
-            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/repository/BanHangRepo.java</file>
-            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/Met_qua_di.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/model/NhanVien.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/dao/DayGiayDao.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/dao/KichCoDAO.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/dao/ProductDetaisDAO.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/model/Login_Model.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/model/interfaceModels.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/dao/ChatLieuDAO.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/dao/ProductDAO.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/service/HoaDonService.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/dao/ThuongHieuDao.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/model/ThanhToanModel.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/service/ChooseKH.java</file>
             <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/utility/DBConnect.java</file>
->>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/dao/MauSacDAO.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/model/KhachHang.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/model/voucher.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/model/Anh_Image.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/model/AkichCo.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/service/KhachHangService.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/model/Lichsuhoadon.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/dao/DeGiayDao.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/model/ThongKe.java</file>
+            <file>file:/C:/Users/Tran%20Viet%20Vuong/OneDrive/Documents/GitHub/Du_an_1_nhom4/src/du_an_1_ql_ban_giay/model/modelCart.java</file>
         </group>
     </open-files>
 </project-private>

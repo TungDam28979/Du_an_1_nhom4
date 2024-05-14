@@ -4,10 +4,7 @@
  */
 package du_an_1_ql_ban_giay.dao;
 
-<<<<<<< HEAD
 import du_an_1_ql_ban_giay.model.GtenGiay;
-=======
->>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
 import du_an_1_ql_ban_giay.utility.JDBCHelper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,10 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-<<<<<<< HEAD
-=======
-import model.GtenGiay;
->>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
+
 
 /**
  *
