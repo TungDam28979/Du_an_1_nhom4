@@ -2,7 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+<<<<<<< HEAD
 package du_an_1_ql_ban_giay.model;
+=======
+package model;
+>>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;

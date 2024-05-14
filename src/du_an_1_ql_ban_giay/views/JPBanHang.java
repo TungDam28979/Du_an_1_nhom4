@@ -4,6 +4,7 @@
  */
 package du_an_1_ql_ban_giay.views;
 
+<<<<<<< HEAD
 import ModelBanHang.HDCTBanHang;
 import ModelBanHang.HoaDonBanHang;
 import ModelBanHang.hinhThucThanhToan;
@@ -23,6 +24,17 @@ import du_an_1_ql_ban_giay.model.voucher;
 import du_an_1_ql_ban_giay.service.KhachHangService;
 import du_an_1_ql_ban_giay.service.NhanVien_Service;
 import du_an_1_ql_ban_giay.service.service_voucher;
+=======
+import BanHangDAO.BanHangDAO;
+import BanHangDAO.HDCT_DAO;
+import BanHangDAO.HTTT_DAO;
+import BanHangDAO.TrangThaiHoaDonDAO;
+import BanHangDAO.TrangThaiThanhToanDAO;
+import dao.KichCoDAO;
+import dao.MauSacDAO;
+import dao.ProductDetaisDAO;
+import du_an_1_ql_ban_giay.dao.ProductDAO;
+>>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
 import du_an_1_ql_ban_giay.utility.MsgBox;
 import java.awt.Color;
 import java.awt.Component;
@@ -44,6 +56,17 @@ import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableRowSorter;
+<<<<<<< HEAD
+=======
+import model.GetChucVu;
+import model.Ispct;
+import model.KhachHang;
+import model.NhanVien;
+import model.voucher;
+import service.KhachHangService;
+import service.NhanVien_Service;
+
+>>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
 /**
  *
  * @author Admin
@@ -967,8 +990,13 @@ public class JPBanHang extends javax.swing.JFrame {
     ProductDetaisDAO prdd = new ProductDetaisDAO();//Sẩn phẩm chi tiết đao
     MauSacDAO msd = new MauSacDAO();//màu sắc dao
     KichCoDAO kcd = new KichCoDAO();//kích cỡ đao
+<<<<<<< HEAD
 //    HTTT_DAO htttd = new HTTT_DAO();// Hinh thức thanh toán
     service_voucher vcd = new service_voucher();//voucher ser
+=======
+    HTTT_DAO htttd = new HTTT_DAO();// Hinh thức thanh toán
+//    service_voucher vcd = new service_voucher();//voucher ser
+>>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
     //----------Lấy model của các combobox để thao tác dữ liệu
     DefaultComboBoxModel dcbMauSac;
     DefaultComboBoxModel dcbKichCo;
@@ -1024,6 +1052,7 @@ public class JPBanHang extends javax.swing.JFrame {
         countSoHD_TaiQuay();//Đếm lại SL hóa đơn trên bảng sau khi Fill
     }
 
+<<<<<<< HEAD
 //    private void fill_HTTT_To_Cbb() {//Đẩy tất cả hình thức thanh toán lên combobox.
 //        dcbHTTT = (DefaultComboBoxModel) cbb_hinhThucThanhToan.getModel();
 //        dcbHTTT.removeAllElements();
@@ -1032,6 +1061,16 @@ public class JPBanHang extends javax.swing.JFrame {
 //            dcbHTTT.addElement(httt);
 //        }
 //    }
+=======
+    private void fill_HTTT_To_Cbb() {//Đẩy tất cả hình thức thanh toán lên combobox.
+        dcbHTTT = (DefaultComboBoxModel) cbb_hinhThucThanhToan.getModel();
+        dcbHTTT.removeAllElements();
+        List<hinhThucThanhToan> listHTTT = htttd.selectAll_HTTT();
+        for (hinhThucThanhToan httt : listHTTT) {
+            dcbHTTT.addElement(httt);
+        }
+    }
+>>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
 
     private void fill_Voucher_To_Cbb() {//Đẩy tất cả Cbb lên.
         dcbVoucherTaiQuay = (DefaultComboBoxModel) cbb_voucher_taiQuay.getModel();
@@ -1452,6 +1491,7 @@ public class JPBanHang extends javax.swing.JFrame {
         });
     }
 
+<<<<<<< HEAD
 //    private void openViewKhachHang() {
 //        ChonThongTinKH kh = new ChonThongTinKH(this, true);
 //        kh.setVisible(true);
@@ -1474,6 +1514,30 @@ public class JPBanHang extends javax.swing.JFrame {
 //            MsgBox.alter(this, "Thay đổi thông tin khách hàng thất bại");
 //        }
 //    }
+=======
+    private void openViewKhachHang() {
+        ChonThongTinKH kh = new ChonThongTinKH(this, true);
+        kh.setVisible(true);
+    }
+
+    //chọn Khách Hàng
+    public void chooseKH(KhachHang kh) {
+        this.chonKH(kh);
+    }
+
+    @Override
+    public void chonKH(KhachHang kh) {//Chọn KH là upda lại kh trong hóa đơn đó
+        txt_maKH.setText(kh.getMaKH());
+        txt_tenKH.setText(kh.getName());
+        int id_KH = kh.getId();
+        String id_HDString = tbl_dshd.getValueAt(indexInvoiceChoosed, 1).toString().substring(2);
+        if (bhd.update_ID_KH(Integer.valueOf(id_HDString), id_KH) == 1) {
+            MsgBox.alter(this, "Thay đổi thông tin khách hàng trong hóa đơn thành công");
+        } else {
+            MsgBox.alter(this, "Thay đổi thông tin khách hàng thất bại");
+        }
+    }
+>>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
 
     //
     public boolean checkValidation_TienKhachDua_CK() {

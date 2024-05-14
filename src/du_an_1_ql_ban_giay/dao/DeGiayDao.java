@@ -1,5 +1,6 @@
 package du_an_1_ql_ban_giay.dao;
 
+<<<<<<< HEAD
 import du_an_1_ql_ban_giay.model.HdeGiay;
 import du_an_1_ql_ban_giay.utility.JDBCHelper;
 import java.util.ArrayList;
@@ -7,6 +8,16 @@ import java.util.List;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+=======
+import du_an_1_ql_ban_giay.utility.JDBCHelper;
+import java.util.ArrayList;
+import java.util.List;
+import model.AkichCo;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.HdeGiay;
+>>>>>>> 12bff6c2505223ff31948d4d495c4aa776698a1b
 public class DeGiayDao {
 
     String SELECT_ALL_BY_SQL = """
